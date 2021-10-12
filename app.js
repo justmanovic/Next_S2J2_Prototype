@@ -34,9 +34,13 @@ Recipe.prototype.cook = function () {
     })
 
   const cuisson = steps[steps.length - 1].map(el => `<p>Then, heat ${el[1]} minutes in the oven at ${el[0]} degrees.</p>`)[0]
+
   stepsString.unshift("<p><b>Here are the steps to follow:</b></p>")
   stepsString.unshift(cuisson)
-  stepsString.unshift(`<h1>${this.title}</h1>`, `<p>${steps[steps.length - 2]}</p>`)
+  stepsString.unshift(`<p>${steps[steps.length - 2]}</p>`)
+  stepsString.unshift(`<h1>${this.title}</h1>`)
+
+
   ul.innerHTML = stepsString.join("")
 }
 
