@@ -16,6 +16,9 @@ const steps = [
   [325, 10]
 ]
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Classe
 function Recipe(title, steps) {
   let recipe = Object.create(Recipe.prototype)
   recipe.title = title
@@ -23,6 +26,7 @@ function Recipe(title, steps) {
   return recipe
 }
 
+// Prototype
 Recipe.prototype.cook = function () {
   const stepsString = steps
     .slice(0, -2)
@@ -39,18 +43,10 @@ Recipe.prototype.cook = function () {
   stepsString.unshift(cuisson)
   stepsString.unshift(`<p>${steps[steps.length - 2]}</p>`)
   stepsString.unshift(`<h1>${this.title}</h1>`)
-
-
   ul.innerHTML = stepsString.join("")
 }
 
-
-
-btnShow.addEventListener("click", showRecipe)
-
-
-btnHide.addEventListener("click", hideRecipe)
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function showRecipe() {
   const recipe1 = new Recipe("Omelette", steps)
@@ -65,3 +61,8 @@ function hideRecipe() {
   btnHide.classList.add("hidden")
   ul.classList.add("hidden")
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+btnShow.addEventListener("click", showRecipe)
+btnHide.addEventListener("click", hideRecipe)
